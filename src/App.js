@@ -3,7 +3,8 @@ import React, { useState, useEffect } from "react";
 import { getCurrentWeather } from "./services/api";
 
 function App() {
-    const [weatherData, setWeatherData] = useState();
+  // eslint-disable-next-line
+    const [weatherData, setWeatherData] = useState(); 
 
     useEffect(() => {
         const getData = async () => {
