@@ -1,4 +1,4 @@
-function LocationNav = {
+function LocationNav() {
     return(
         <div className="nav-container">
             <button className="location">ICON</button>
@@ -8,4 +8,4 @@ function LocationNav = {
     )
 }
 
-export default LocationNav;
+export  {LocationNav};
