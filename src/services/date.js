@@ -22,8 +22,7 @@ const getFormattedDate = (today) =>
 }
 
 let date = new Date();
-let dateText =  [];
-getFormattedDate(date);
+let dateText = getFormattedDate(date);
 console.log(dateText);
 
-export { dateText }
+// export { dateText }
