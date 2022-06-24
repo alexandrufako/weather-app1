@@ -1,10 +1,29 @@
-import './locationSearch.css'
+import "./locationSearch.css";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { getCurrentWeather } from "../../services/api";
 import NavTitle from "../../components/nav-title/navTitle";
 
-function LocationSearch() {
+
+function LocationSearch(props) {
+    const [searchInput, setSearchInput] = useState({
+        query: null,
+    });
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        props.onSubmit(searchInput);
+    };
+    console.log(searchInput)
+
+    const handleOnChange = (e) => {
+        const inputQ = e.target.query;
+        const inputValue = e.target.value;
+        const tempValue = {...searchInput};
+        tempValue[inputQ] = inputValue;
+        setSearchInput(tempValue);
+    };
+    
     // eslint-disable-next-line
     const [weatherData, setWeatherData] = useState();
 
@@ -26,11 +45,20 @@ function LocationSearch() {
 
     return (
         <div className=".location-container">
-            <NavTitle title='Forecast report'/>
+            <NavTitle title="Pick location" />
             <p>
                 Find the area or city that you want to know the detailed weather
                 info at this time
             </p>
+            <form className="search" onSubmit={handleSubmit}>
+                <input
+                    value={searchInput.q}
+                    type="text"
+                    placeholder="Search for a city..."
+                    onChange={handleOnChange}
+                />
+                <button type="submit">Search</button>
+            </form>
             <div className="city">California</div>
             <div className="city">Paris</div>
             <div className="city">London</div>
@@ -39,4 +67,6 @@ function LocationSearch() {
     );
 }
 
+
 export default LocationSearch;
+

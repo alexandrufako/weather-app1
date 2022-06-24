@@ -45,6 +45,7 @@ const getFormattedDate = (today) => {
         date: `${mm} ${dd}, ${yyyy}`,
         time: `${hour} : ${minu}`,
     };
+    
 };
 
 let date = new Date();
