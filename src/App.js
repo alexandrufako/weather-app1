@@ -7,7 +7,7 @@ import Forecast from "./pages/forecast/forecast";
 
 function App() {
     return (
-        <div>
+        <div className="App">
             <Router>
                 <Routes>
                     <Route index element={<Home />} />

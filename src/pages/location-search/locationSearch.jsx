@@ -1,3 +1,5 @@
+import './locationSearch.css'
+
 import React, { useState, useEffect } from "react";
 import { getCurrentWeather } from "../../services/api";
 import NavTitle from "../../components/nav-title/navTitle";
