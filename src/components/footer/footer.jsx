@@ -2,17 +2,21 @@ import React, { useState, useEffect } from "react";
 
 import { Link } from "react-router-dom";
 import { FiHome } from "react-icons/fi";
-import { FiSearch } from "react-icons/fi";
-import { MdAutoGraph } from "react-icons/md";
+import { RiSearchLine } from "react-icons/ri";
+import { BsFileBarGraph } from "react-icons/bs";
 import { FiSettings } from "react-icons/fi";
+import { AiTwotoneHome } from "react-icons/ai";
+import { RiSearchFill } from "react-icons/ri";
+import { BsFileBarGraphFill } from "react-icons/bs";
+import { IoMdSettings } from "react-icons/io";
 import "./footer.css";
 
 const Footer = () => {
     const [select, setSelect] = useState({
-        home: "",
-        search: "",
-        forecast: "",
-        settings: "",
+        home: <FiHome/>,
+        search: <RiSearchLine/>,
+        forecast: <BsFileBarGraph/>,
+        settings: <FiSettings/>,
     });
 
     const selected = (param) => {
@@ -21,47 +25,47 @@ const Footer = () => {
         switch (param) {
             case "home":
                 return (
-                    tempObj.home= "selected",
-                    tempObj.search= "",
-                    tempObj.forecast= "",
-                    tempObj.settings= "",
+                    tempObj.home= <AiTwotoneHome />,
+                    tempObj.search= <RiSearchLine/>,
+                    tempObj.forecast= <BsFileBarGraph/> ,
+                    tempObj.settings= <FiSettings/> ,
                     setSelect(tempObj)
                 )
         
 
             case "search":
                 return (
-                    tempObj.home= "",
-                    tempObj.search= "search",
-                    tempObj.forecast= "",
-                    tempObj.settings= "",
+                    tempObj.home= <FiHome/> ,
+                    tempObj.search= <RiSearchFill/> ,
+                    tempObj.forecast= <BsFileBarGraph/> ,
+                    tempObj.settings= <FiSettings/> ,
                     setSelect(tempObj)
                 )
 
             case "forecast":
                 return (
-                    tempObj.home= "",
-                    tempObj.search= "",
-                    tempObj.forecast= "selected",
-                    tempObj.settings= "",
+                    tempObj.home= <FiHome/> ,
+                    tempObj.search= <RiSearchLine/> ,
+                    tempObj.forecast= <BsFileBarGraphFill/>,
+                    tempObj.settings= <FiSettings/> ,
                     setSelect(tempObj)
                 )
 
             case "settings":
                 return (
-                    tempObj.home= "",
-                    tempObj.search= "",
-                    tempObj.forecast= "",
-                    tempObj.settings= "selected",
+                    tempObj.home= <FiHome/> ,
+                    tempObj.search= <RiSearchLine/> ,
+                    tempObj.forecast= <BsFileBarGraph/> ,
+                    tempObj.settings= <IoMdSettings/> ,
                     setSelect(tempObj)
                 )
 
             default:
                 return (
-                    tempObj.home= "",
-                    tempObj.search= "",
-                    tempObj.forecast= "",
-                    tempObj.settings= "",
+                    tempObj.home= <FiHome/> ,
+                    tempObj.search= <RiSearchLine/> ,
+                    tempObj.forecast= <BsFileBarGraph/> ,
+                    tempObj.settings= <FiSettings/> ,
                     setSelect(tempObj)
                 );
         };
@@ -72,31 +76,31 @@ const Footer = () => {
         <div className="footer-container">
             <Link
                 to="/"
-                className={`footer-btn ${select.home}`}
+                className={`footer-btn `}
                 onClick={() => selected("home")}
             >
-                <FiHome />
+                {select.home}
             </Link>
             <Link
                 to="/search"
-                className={`footer-btn ${select.search}`}
+                className={`footer-btn `}
                 onClick={() => selected("search")}
             >
-                <FiSearch />
+                {select.search}
             </Link>
             <Link
                 to="/forecast"
-                className={`footer-btn ${select.forecast}`}
+                className={`footer-btn `}
                 onClick={() => selected("forecast")}
             >
-                <MdAutoGraph />
+                {select.forecast}
             </Link>
             <Link
                 to="/settings"
-                className={`footer-btn ${select.settings}`}
+                className={`footer-btn `}
                 onClick={() => selected("settings")}
             >
-                <FiSettings />
+                {select.settings}
             </Link>
         </div>
     );
