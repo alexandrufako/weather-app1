@@ -25,4 +25,4 @@ let date = new Date();
 let dateText = getFormattedDate(date);
 console.log(dateText);
 
-// export { dateText }
+export { dateText };
