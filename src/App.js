@@ -1,21 +1,18 @@
 import "./App.css";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import ForecastReport from "./pages/forecast-report/forecastReport";
+import Forecast from "./pages/forecast/forecastReport";
 import Home from "./pages/home/home";
 import LocationSearch from "./pages/location-search/locationSearch";
 import Footer from "./components/footer/footer";
 
 function App() {
     return (
-        <div className="App">
+        <div>
             <Router>
                 <Routes>
-                    <index element={<Home />} />
+                    <Route index element={<Home />} />
                     <Route path="/search" element={<LocationSearch />} />
-                    <Route
-                        path="/forecast-report"
-                        element={<ForecastReport />}
-                    />
+                    <Route path="/forecast" element={<Forecast />} />
                 </Routes>
                 <Footer />
             </Router>
