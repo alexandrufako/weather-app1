@@ -15,3 +15,7 @@
     text-decoration: none;
     color: white;
 }
+
+.selected {
+    text-shadow: -1px 2px 59px 22px rgba(255,255,255,0.75);
+}
