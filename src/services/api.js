@@ -12,3 +12,4 @@ return data;
 }
 
 export { getCurrentWeather };
+export { city };
