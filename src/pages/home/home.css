@@ -1,0 +1,7 @@
+.today {
+    position: absolute;
+    width: 100%;
+    top: 6rem;
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.462);
+}

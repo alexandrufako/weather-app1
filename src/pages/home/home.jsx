@@ -1,14 +1,18 @@
+import "./home.css"
+
 import NavTitle from "../../components/nav-title/navTitle";
 import { dateText } from "../../services/date";
 import { searchQ } from "../location-search/locationSearch";
 
 const Home = () => {
-
     return (
         <div className="home-container">
-            <NavTitle title={`${searchQ.searchWord}` || `Pick a city`} />
+            <>
+                <NavTitle title={`${searchQ.searchWord}` || `Pick a city`} />
+                <div className="today">{dateText.date}</div>
+            </>
 
-            <div className="today">{dateText.day}</div>
+
         </div>
     );
 };
