@@ -1,28 +1,36 @@
 import "./locationSearch.css";
 
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import { getCurrentWeather } from "../../services/api";
 import NavTitle from "../../components/nav-title/navTitle";
 
+var searchQ = {
+    searchWord: "Pick a city",
+};
+
+var weatherExport = {
+    temp: null,
+    feelsLike: null,
+    isDay: null,
+    humidity: null,
+    cloud: null,
+};
+
 function LocationSearch(props) {
-    const [searchInput, setSearchInput] = useState({
-        query: null,
-    });
+    const [searchInput, setSearchInput] = useState("");
+    const [start, setStart] = useState(0);
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log(searchInput);
-        props.onSubmit(searchInput)
+        searchQ.searchWord = searchInput;
+        setStart(start + 1);
+        console.log(weatherExport);
     };
 
     const handleOnChange = (e) => {
-        const inputName = e.target.query;
         const inputValue = e.target.value;
-
-        const tempObj = { ...searchInput };
-        tempObj[inputName] = inputValue;
+        let tempObj = inputValue;
         setSearchInput(tempObj);
-        console.log("handleonchange" + searchInput);
     };
 
     // eslint-disable-next-line
@@ -41,8 +49,10 @@ function LocationSearch(props) {
             };
             setWeatherData(filteredData);
         };
+
         getData();
-    }, []);
+        weatherExport = weatherData;
+    }, [start]);
 
     return (
         <div className=".location-container">
@@ -55,8 +65,8 @@ function LocationSearch(props) {
                 <input
                     type="text"
                     placeholder="Search for a city..."
-                    query="q"
-                    value={searchInput.name}
+                    name="search"
+                    value={searchInput}
                     onChange={handleOnChange}
                 />
                 <button type="submit">Search</button>
@@ -70,3 +80,6 @@ function LocationSearch(props) {
 }
 
 export default LocationSearch;
+
+export { searchQ };
+export { weatherExport };

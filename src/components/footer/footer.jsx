@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 
 import { Link } from "react-router-dom";
 import { FiHome } from "react-icons/fi";
@@ -13,7 +13,7 @@ import "./footer.css";
 
 const Footer = () => {
     const [select, setSelect] = useState({
-        home: <FiHome/>,
+        home: <AiTwotoneHome />,
         search: <RiSearchLine/>,
         forecast: <BsFileBarGraph/>,
         settings: <FiSettings/>,
