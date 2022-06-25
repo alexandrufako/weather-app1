@@ -3,9 +3,10 @@ import "./locationSearch.css";
 import React, { useState, useEffect } from "react";
 import { getCurrentWeather } from "../../services/api";
 import NavTitle from "../../components/nav-title/navTitle";
+import { HiOutlineLocationMarker } from 'react-icons/hi'
 
 var searchQ = {
-    searchWord: "Pick a city",
+    searchWord: "Bucharest",
 };
 
 var weatherExport = {
@@ -57,24 +58,31 @@ function LocationSearch(props) {
     return (
         <div className=".location-container">
             <NavTitle title="Pick location" />
-            <p>
+            <p className="location-paragraf">
                 Find the area or city that you want to know the detailed weather
                 info at this time
             </p>
-            <form className="search" onSubmit={handleSubmit}>
-                <input
-                    type="text"
-                    placeholder="Search for a city..."
-                    name="search"
-                    value={searchInput}
-                    onChange={handleOnChange}
-                />
-                <button type="submit">Search</button>
-            </form>
-            <div className="city">California</div>
-            <div className="city">Paris</div>
-            <div className="city">London</div>
-            <div className="city">Milan</div>
+            <div className="search-container">
+                <form className="search" onSubmit={handleSubmit}>
+                    <input
+                        type="text"
+                        placeholder="Search for a city..."
+                        name="search"
+                        value={searchInput}
+                        onChange={handleOnChange}
+                    />
+                    <button className="search-btn" type="submit">
+                    <HiOutlineLocationMarker/>
+                    </button>
+                    
+                </form>
+            </div>
+            <div className="cities">
+                <div className="city">California</div>
+                <div className="city spatiu">Paris</div>
+                <div className="city">London</div>
+                <div className="city">Milan</div>
+            </div>
         </div>
     );
 }

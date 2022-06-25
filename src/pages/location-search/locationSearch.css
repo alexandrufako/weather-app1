@@ -1,0 +1,54 @@
+.location-paragraf {
+    position: absolute;
+    width: 80%;
+    top: 5rem;
+    left: 36px;
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.462);
+    display: flex;
+}
+
+.search-container {
+    position: absolute;
+    width: 100%;
+    top: 10rem;
+}
+
+.cities {
+    position: absolute;
+    top: 15rem;
+}
+
+.city {
+    display: inline-block;
+    width: 120px;
+    height: 120px;
+    background-color: rgba(56, 56, 56, 0.071);
+    margin: 10px;
+}
+
+.search {
+    display: flex;
+    margin-left: 25px;
+    margin-right: 25px;
+    justify-content: space-around;
+}
+
+.search input,
+button {
+    border: none;
+    padding: 12px;
+    border-radius: 10px;
+    background-color: rgba(83, 83, 83, 0.244);
+}
+
+.search input {
+    width: 200px;
+    color: white;
+}
+.search-btn {
+    width: 50px;
+    font-size: 20px;
+    color: white;
+    cursor: pointer;
+}

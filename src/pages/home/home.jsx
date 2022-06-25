@@ -8,7 +8,7 @@ const Home = () => {
     return (
         <div className="home-container">
             <>
-                <NavTitle title={`${searchQ.searchWord}` || `Pick a city`} />
+                <NavTitle title={`${searchQ.searchWord}` || `Pick a location`} />
                 <div className="today">{dateText.date}</div>
             </>
 
