@@ -6,12 +6,12 @@
     width: 90%;
     max-width: 360px;
     position: absolute;
-    bottom: 2.5rem;
+    bottom: 2rem;
     left: 18px;
 }
 
 .footer-btn {
-    font-size: 25px;
+    font-size: 27px;
     text-decoration: none;
     color: white;
 }

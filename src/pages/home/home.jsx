@@ -1,5 +1,5 @@
 import "./home.css"
-import HomeCast from "../../components/home-forecast/home-cast";
+import HomeCast from "../../components/home/home-forecast/home-cast";
 import NavTitle from "../../components/nav-title/navTitle";
 import { dateText } from "../../services/date";
 import { searchQ } from "../location-search/locationSearch";
