@@ -52,3 +52,4 @@ let date = new Date();
 let dateText = getFormattedDate(date);
 
 export { dateText };
+console.log(date)

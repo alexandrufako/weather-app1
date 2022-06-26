@@ -5,11 +5,8 @@ import { getCurrentWeather } from "../../services/api";
 import NavTitle from "../../components/nav-title/navTitle";
 import { HiOutlineLocationMarker } from 'react-icons/hi'
 
-var searchQ = {
-    searchWord: "Bucharest",
-};
-
 var weatherExport = {
+    name: null,
     temp: null,
     feelsLike: null,
     isDay: null,
@@ -17,15 +14,19 @@ var weatherExport = {
     cloud: null,
 };
 
+var searchQ = {
+    searchWord: "Bucharest",  //? asta ar trebui sa fie DEFAULT
+};
+
 function LocationSearch(props) {
     const [searchInput, setSearchInput] = useState("");
-    const [start, setStart] = useState(0);
 
     const handleSubmit = (e) => {
         e.preventDefault();
         searchQ.searchWord = searchInput;
-        setStart(start + 1);
+//!weatherExport e null la prima montare a componentei si nu inteleg de ce, ca eu trimit in API searchwordul, nu se suprascrie chiar daca e initializat null?
         console.log(weatherExport);
+        console.log('search word: ' + searchQ.searchWord + ' object.temp: ' + weatherData.temp + ' city name ' + weatherData.name)
     };
 
     const handleOnChange = (e) => {
@@ -34,6 +35,7 @@ function LocationSearch(props) {
         setSearchInput(tempObj);
     };
 
+
     // eslint-disable-next-line
     const [weatherData, setWeatherData] = useState();
 
@@ -41,7 +43,11 @@ function LocationSearch(props) {
         const getData = async () => {
             const response = await getCurrentWeather();
             const resCurrent = response.current;
+            const resLocation = response.location;
+            const resAirQ = response.current.air_quality;
             const filteredData = {
+                name: resLocation.name,
+
                 temp: resCurrent.temp_c,
                 feelsLike: resCurrent.feelslike_c,
                 isDay: resCurrent.is_day,
@@ -53,7 +59,9 @@ function LocationSearch(props) {
 
         getData();
         weatherExport = weatherData;
-    }, [start]);
+    }, [searchInput]);
+
+//* - ar trebui sa mai fac un useEffect care sa urmareasca montarea initiala, asta de deasupra urmareste doar "searchInput" si cred ca deaia nu mi se monteaza orasul default
 
     return (
         <div className=".location-container">

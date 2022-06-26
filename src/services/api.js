@@ -5,7 +5,7 @@ const apiKey = "a8c8893145184dc884f133217222306";
 
 const aqi = "no";
 
-const city = searchQ?.searchWord;
+const city = searchQ?.searchWord || 'Bucharest';
 
 //call example http://api.weatherapi.com/v1/current.json?key=a8c8893145184dc884f133217222306&q=Bucharest&aqi=no
 
