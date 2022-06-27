@@ -22,13 +22,13 @@ var weatherExport = {
 };
 
 var searchQ = {
-    searchWord: "Bucharest", //? asta ar trebui sa fie DEFAULT
+    searchWord: "Bucharest", //? -> asta ar trebui sa fie DEFAULT
 };
 
 
 
 function LocationSearch(props) {
-    const [searchInput, setSearchInput] = useState("");
+    const [searchInput, setSearchInput] = useState("Bucharest");
 
     // const navigate = useNavigate();
 
@@ -74,11 +74,11 @@ function LocationSearch(props) {
                 cloud: resCurrent.cloud,
                 wind: resCurrent.wind_kph,
 
-                air_co: resAirQ.co,
-                air_no: resAirQ.no2,
-                air_o: resAirQ.o3,
-                air_pm: resAirQ.pm2_5,
-                air_pmm: resAirQ.pm10,
+                airco: resAirQ.co,
+                airno: resAirQ.no2,
+                airo: resAirQ.o3,
+                airpm: resAirQ.pm2_5,
+                airpmm: resAirQ.pm10,
             };
             setWeatherData(filteredData);
         };

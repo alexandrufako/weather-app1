@@ -12,15 +12,15 @@ const HomeCast = () => {
             <div className="details-container">
                 <div className="details">
                     <p className="p1">Temp</p>
-                    <p className="p2">{`${weatherExport.temp}°`}</p>
+                    <p className="p2">{`${weatherExport?.temp}°`}</p>
                 </div>
                 <div className="details">
                     <p className="p1">Wind</p>
-                    <p className="p2">{`${weatherExport.wind}km/h`}</p>
+                    <p className="p2">{`${weatherExport?.wind}km/h`}</p>
                 </div>
                 <div className="details">
                     <p className="p1">Humidity</p>
-                    <p className="p2">{`${weatherExport.humidity}%`}</p>
+                    <p className="p2">{`${weatherExport?.humidity}%`}</p>
                 </div>
             </div>
         </div>
