@@ -1,6 +1,6 @@
 import "./locationSearch.css";
 
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 import React, { useState, useEffect } from "react";
 import { getCurrentWeather } from "../../services/api";
 import NavTitle from "../../components/nav-title/navTitle";
@@ -29,7 +29,7 @@ var searchQ = {
 function LocationSearch(props) {
     const [searchInput, setSearchInput] = useState("");
 
-    const navigate = useNavigate();
+    // const navigate = useNavigate();
 
     const handleSubmit = (e) => {
         
