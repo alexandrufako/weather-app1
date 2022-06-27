@@ -1,6 +1,6 @@
 import { searchQ } from "../pages/location-search/locationSearch";
 
-const baseUrl = "http://api.weatherapi.com/v1/";
+const baseUrl = "https://api.weatherapi.com/v1/";
 const apiKey = "a8c8893145184dc884f133217222306";
 
 const aqi = "yes";  //air quality information - fara "yes" nu trimite obiectele de air_quality
