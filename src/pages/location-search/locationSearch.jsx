@@ -13,6 +13,7 @@ var weatherExport = {
     isDay: null,
     humidity: null,
     cloud: null,
+    wind: null,
     airco: null,
     airno: null,
     airo: null,
@@ -45,7 +46,7 @@ function LocationSearch(props) {
                 " city name " +
                 weatherData.name
         );
-        // navigate('/', {replace: true}); //! problema cu functia de switch, nu schimba...ramane pe search ; trebuie adaugat un validate
+        // navigate('/', {replace: true}); //! problema cu functia de switch, nu schimba...ramane pe search ; trebuie adaugat un validate ca face switch si cu input gol
     };
 
     const handleOnChange = (e) => {
@@ -71,6 +72,7 @@ function LocationSearch(props) {
                 isDay: resCurrent.is_day,
                 humidity: resCurrent.humidity,
                 cloud: resCurrent.cloud,
+                wind: resCurrent.wind_kph,
 
                 air_co: resAirQ.co,
                 air_no: resAirQ.no2,
@@ -111,12 +113,12 @@ function LocationSearch(props) {
                     </button>
                 </form>
             </div>
-            <div className="cities">
+            {/* <div className="cities">
                 <div className="city">California</div>
                 <div className="city spatiu">Paris</div>
                 <div className="city">London</div>
                 <div className="city">Milan</div>
-            </div>
+            </div> */}
         </div>
     );
 }
