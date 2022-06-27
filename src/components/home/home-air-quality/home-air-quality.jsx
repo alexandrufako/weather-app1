@@ -1,8 +1,6 @@
 import "./home-air-quality.css"
 
-import { weatherExport } from "../../../pages/location-search/locationSearch";
-
-const HomeAirQ = () => {
+const HomeAirQ = ({ weatherExport }) => {
     return (
         <div className="home-air-container">
             <div className="air-details">

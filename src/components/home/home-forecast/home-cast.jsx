@@ -1,9 +1,7 @@
 import "./home-cast.css";
-
-import { weatherExport } from "../../../pages/location-search/locationSearch";
 import icon from "../../../img/weather-icons/icon_clear_sky_day.png";
 
-const HomeCast = () => {
+const HomeCast = ({ weatherExport }) => {
     return (
         <div className="homecast-container">
             <div className="image">
@@ -28,4 +26,3 @@ const HomeCast = () => {
 };
 
 export default HomeCast;
-console.log(weatherExport);

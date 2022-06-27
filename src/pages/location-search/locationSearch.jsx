@@ -6,24 +6,24 @@ import { getCurrentWeather } from "../../services/api";
 import NavTitle from "../../components/nav-title/navTitle";
 import { HiOutlineLocationMarker } from "react-icons/hi";
 
-var weatherExport = {
-    name: null,
-    temp: null,
-    feelsLike: null,
-    isDay: null,
-    humidity: null,
-    cloud: null,
-    wind: null,
-    airco: null,
-    airno: null,
-    airo: null,
-    airpm: null,
-    airpmm: null,
-};
+// var weatherExport = {
+//     name: null,
+//     temp: null,
+//     feelsLike: null,
+//     isDay: null,
+//     humidity: null,
+//     cloud: null,
+//     wind: null,
+//     airco: null,
+//     airno: null,
+//     airo: null,
+//     airpm: null,
+//     airpmm: null,
+// };
 
-var searchQ = {
-    searchWord: "Bucharest", //? -> asta ar trebui sa fie DEFAULT
-};
+// var searchQ = {
+//     searchWord: "Bucharest", //? -> asta ar trebui sa fie DEFAULT
+// };
 
 
 
@@ -35,24 +35,22 @@ function LocationSearch(props) {
     const handleSubmit = (e) => {
         
         e.preventDefault();
-        searchQ.searchWord = searchInput;
+        //searchQ.searchWord = searchInput;
         //!weatherExport e null la prima montare a componentei si nu inteleg de ce, ca eu trimit in API searchwordul, nu se suprascrie chiar daca e initializat null?
-        console.log(weatherExport);
-        console.log(
-            "search word: " +
-                searchQ.searchWord +
-                " object.temp: " +
-                weatherData.temp +
-                " city name " +
-                weatherData.name
-        );
+        // console.log(weatherExport);
+        // console.log(
+        //     "search word: " +
+        //         searchQ.searchWord +
+        //         " object.temp: " +
+        //         weatherData.temp +
+        //         " city name " +
+        //         weatherData.name
+        // );
         // navigate('/', {replace: true}); //! problema cu functia de switch, nu schimba...ramane pe search ; trebuie adaugat un validate ca face switch si cu input gol
     };
 
     const handleOnChange = (e) => {
-        const inputValue = e.target.value;
-        let tempObj = inputValue;
-        setSearchInput(tempObj);
+        setSearchInput(e.target.value);
     };
 
     // eslint-disable-next-line
@@ -60,31 +58,40 @@ function LocationSearch(props) {
 
     useEffect(() => {
         const getData = async () => {
-            const response = await getCurrentWeather();
-            const resCurrent = response.current;
-            const resLocation = response.location;
-            const resAirQ = resCurrent.air_quality;
-            const filteredData = {
-                name: resLocation.name,
-
-                temp: resCurrent.temp_c,
-                feelsLike: resCurrent.feelslike_c,
-                isDay: resCurrent.is_day,
-                humidity: resCurrent.humidity,
-                cloud: resCurrent.cloud,
-                wind: resCurrent.wind_kph,
-
-                airco: resAirQ.co,
-                airno: resAirQ.no2,
-                airo: resAirQ.o3,
-                airpm: resAirQ.pm2_5,
-                airpmm: resAirQ.pm10,
-            };
-            setWeatherData(filteredData);
+            try{
+                const response = await getCurrentWeather();
+                if(response.status === 200){
+                    const resCurrent = response.current;
+                    const resLocation = response.location;
+                    const resAirQ = resCurrent.air_quality;
+                    const filteredData = {
+                        name: resLocation.name,
+        
+                        temp: resCurrent.temp_c,
+                        feelsLike: resCurrent.feelslike_c,
+                        isDay: resCurrent.is_day,
+                        humidity: resCurrent.humidity,
+                        cloud: resCurrent.cloud,
+                        wind: resCurrent.wind_kph,
+        
+                        airco: resAirQ.co,
+                        airno: resAirQ.no2,
+                        airo: resAirQ.o3,
+                        airpm: resAirQ.pm2_5,
+                        airpmm: resAirQ.pm10,
+                    };
+                    setWeatherData(filteredData);
+                }
+                else{
+                    //throw Error("")
+                }
+            } catch(error){
+                console.log(error);
+            }
         };
 
         getData();
-        weatherExport = weatherData;
+        //weatherExport = weatherData;
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [searchInput]);
 
@@ -125,8 +132,8 @@ function LocationSearch(props) {
 
 export default LocationSearch;
 
-export { searchQ };
-export { weatherExport };
+// export { searchQ };
+// export { weatherExport };
 
 // let weatherObject = {
 //     location: {
